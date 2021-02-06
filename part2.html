@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lab_3</title>
+  </head>
+
+  <body>
+    <h1>Практична робота №3</h1>
+    <h2>ООП</h2>
+ 
+    <p>Макаренко Наталія, студентка 2 курсу, група ЗПІ-зп03
+    <h4>Введіть ПІП переможця</h4>
+
+<div>
+  <form name="Winner">
+    <b>Ім"я:</b>
+        <input type="text" size= "20" name="name"><br>
+    <b>По-батькові:</b>
+        <input type="text" size="20" name="f_name"><br>
+    <b>Прізвище:</b>
+            <input type="text" size="20" name="l_name"><br>    
+    <h4>Як Ви бажаєте використати виграш</h4>
+            <input type="radio" name="Action" value="take"> Забрати <br>
+            <input type="radio" name="Action" value="donate"> Пожертвувати <br>
+            <input type="radio" name="Action" value="play"> Знову грати <br>          
+  </form>
+</div>
+
+  <div>
+    <button>Відправити</button>
+  </div>
+
+<script>
+  let xhr = new XMLHttpRequest();
+  xhr.open('get', 'some1.txt', true);
+  xhr.onload = function () {
+    if (xhr.status = 200) {
+      console.log(xhr.response);
+    }
+    else console.log ('Error');
+  } 
+  xhr.send ();
+</script>
+
+<script>
+  document.querySelector('button').onclick = function () {
+    let formData = new FormData(document.forms.Winner);
+    let xhr1 = new XMLHttpRequest();
+    xhr1.onloadend = () => {
+      if (xhr1.status ==200) {
+        alert ("Дані відправлено!");}
+        else {alert(this.status)};
+    }
+    xhr1.open('POST', 'some.txt', true);
+    xhr1.send(formData);
+}
+</script>
+
+</body>
+</html>
